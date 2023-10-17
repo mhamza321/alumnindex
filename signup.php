@@ -376,6 +376,8 @@ include 'admin/db_connect.php';
                 } else if (resp == 5) {
                     $('#msg').html('<div class="alert alert-danger">Password and confirm password does not match.</div>')
                     end_load()
+                } else if (resp == 10) {
+                    console.log("Student Signup")
                 } else {
                     $('#msg').html('<div class="alert alert-danger">email already exist.</div>')
                     end_load()

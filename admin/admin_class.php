@@ -168,7 +168,9 @@ class Action
 			return 2;
 			exit;
 		}
+		// return $user_type;
 		// 3. insert data into user table if everything is alright
+		// $save = '';
 		$save = $this->db->query("INSERT INTO users set " . $data);
 		if ($save) {
 			$uid = $this->db->insert_id;
@@ -187,6 +189,7 @@ class Action
 			// 	$data .= ", avatar = '$fname' ";
 			// }
 			// Check user type ****** Code start by Hamza
+			// return $user_type;
 			// print($user_type);
 			// exit();
 			if ($user_type == 20) { // If user type is organization, then save data in Organization table
@@ -257,6 +260,48 @@ class Action
 				// exit();
 				// print($save_alumni);
 				if ($save_alumni) {
+					// print("Data submitted");
+					$aid = $this->db->insert_id;
+					// var_dump($aid);
+					// exit();
+					$login = $this->db->query("UPDATE users set alumnus_id = $aid where id = $uid ");
+					// $login = $this->login2();
+					if ($login)
+						return 1;
+				}
+			} else if ($user_type == 10) { // student signup
+				$data = '';
+				$move = '';
+				// if ($_FILES['img']['tmp_name'] != '') {
+				// 	$fname = strtotime(date('y-m-d H:i')) . '_' . $_FILES['img']['name'];
+				// 	$move = move_uploaded_file($_FILES['img']['tmp_name'], 'assets/uploads/' . $fname);
+				// 	// $data .= ", avatar = '$fname' ";
+				// }
+
+				$data = " firstname = '" . $firstname . ' ' . $lastname . "' ";
+				$data .= ", email = '$email' ";
+				$data .= ", phone = '$phone' ";
+				// $data .= ", org_type = '$org_type' ";
+				$data .= ", address = '$address' ";
+				$data .= ", gender = '$gender' ";
+				$data .= ", batch = '$batch' ";
+				// $data .= ", connected_to = '$connected_to' ";
+				$data .= ", org_id = '$academia_id' ";
+				$data .= ", dept_id = '$dept_id' ";
+				$data .= ", status = '1' ";
+				$data .= ", alumni = '0' "; // insert 0 if this is student signup
+				// $data .= ", avatar = '$move' ";
+				// var_dump($data);
+				// exit();
+				// $save_alumni = $this->db->query("INSERT INTO alumnus_bio SET firstname='1John Doe', email='john@example.com'");
+				// var_dump($fname);
+				// var_dump($move);
+				// var_dump($data);
+				$save_student = $this->db->query("INSERT INTO alumnus_bio set $data ");
+				// var_dump($save_alumni);
+				// exit();
+				// print($save_alumni);
+				if ($save_student) {
 					// print("Data submitted");
 					$aid = $this->db->insert_id;
 					// var_dump($aid);
