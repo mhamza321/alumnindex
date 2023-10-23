@@ -67,19 +67,27 @@
                                 </div>
                             </div> -->
                         </div>
-                        <div class="col-md-3">
-                            <div class="card">
-                                <div class="card-body bg-primary">
-                                    <div class="card-body text-white">
-                                        <span class="float-right summary_icon"><i class="fa fa-users"></i></span>
-                                        <h4><b>
-                                                <?php echo $conn->query("SELECT * FROM alumnus_bio where status = 1")->num_rows; ?>
-                                            </b></h4>
-                                        <p><b>Alumni</b></p>
+                        <?php //var_dump($_SESSION['login_org_id']);
+                        $org = $conn->query("SELECT org_type FROM orgnaization_bio where org_id = " . $_SESSION['login_org_id'])->fetch_array();
+                        // var_dump($org['org_type']);
+                        if ($org['org_type'] == 1) { // show if it is academia login
+                            // print("Idustry");
+
+                        ?>
+                            <div class="col-md-3">
+                                <div class="card">
+                                    <div class="card-body bg-primary">
+                                        <div class="card-body text-white">
+                                            <span class="float-right summary_icon"><i class="fa fa-users"></i></span>
+                                            <h4><b>
+                                                    <?php echo $conn->query("SELECT * FROM alumnus_bio where status = 1")->num_rows; ?>
+                                                </b></h4>
+                                            <p><b>Alumni</b></p>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
-                        </div>
+                        <?php } ?>
                         <div class="col-md-3">
                             <div class="card">
                                 <div class="card-body bg-info">

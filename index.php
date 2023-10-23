@@ -93,7 +93,7 @@ a.jqte_tool_label.unselectable {
             <li class="nav-item"><a class="nav-link js-scroll-trigger" href="index.php?page=careers">Jobs</a></li>
             <li class="nav-item"><a class="nav-link js-scroll-trigger" href="index.php?page=forum">Forums</a></li>
           <?php endif; ?>
-          <li class="nav-item"><a class="nav-link js-scroll-trigger" href="index.php?page=about">About</a></li>
+          <!-- <li class="nav-item"><a class="nav-link js-scroll-trigger" href="index.php?page=about">About</a></li> -->
           <?php if (!isset($_SESSION['login_id'])) : ?>
             <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#" id="login">Login</a></li>
           <?php else : ?>
@@ -196,7 +196,7 @@ a.jqte_tool_label.unselectable {
     </div>
     <br>
     <div class="container">
-      <div class="small text-center text-muted">Copyright © 2020 - <?php echo $_SESSION['system']['name'] ?> | <a href="https://www.sourcecodester.com/" target="_blank">Sourcecodester</a></div>
+      <div class="small text-center text-muted">Copyright © 2023 - <?php echo $_SESSION['system']['name'] ?></div>
     </div>
   </footer>
 
