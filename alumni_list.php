@@ -131,9 +131,9 @@ include 'admin/db_connect.php';
                 $fpath = 'admin/assets/uploads';
                 // $alumni = $conn->query("SELECT a.*,c.course,Concat(a.lastname,', ',a.firstname,' ',a.middlename) as name from alumnus_bio a inner join courses c on c.id = a.course_id order by Concat(a.lastname,', ',a.firstname,' ',a.middlename) asc");
                 if ($_SESSION['login_org_id'] > 0) {
-                    var_dump($_SESSION['login_org_id']);
+                    //var_dump($_SESSION['login_org_id']);
                     $alumni = $conn->query("SELECT a.*,c.name, Concat(a.lastname,', ',a.firstname,' ',a.middlename) as aname from alumnus_bio a inner join departments c on c.id = a.dept_id where a.org_id=" . $_SESSION['login_org_id']);
-                    print("Helo");
+                    //print("Helo");
                 } else {
                     // var_dump($_SESSION['login_id']);
                     $loginid = $conn->query("SELECT org_id from alumnus_bio where id=" . $_SESSION['login_id'])->fetch_array();
