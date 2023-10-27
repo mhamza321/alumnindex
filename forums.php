@@ -64,7 +64,7 @@
 							<tbody>
 								<?php
 								$i = 1;
-								$Forum =  $conn->query("SELECT f.*,u.name from forum_topics f inner join users u on u.id = f.user_id order by f.id desc");
+								$Forum =  $conn->query("SELECT f.*,u.name from forum_topics f inner join users u on u.id = f.user_id where user_id =" . $_SESSION['login_id']);
 								while ($row = $Forum->fetch_assoc()) :
 									$trans = get_html_translation_table(HTML_ENTITIES, ENT_QUOTES);
 									unset($trans["\""], $trans["<"], $trans[">"], $trans["<h2"]);
@@ -93,7 +93,7 @@
 
 										</td>
 										<td class="text-center">
-											<a class="btn btn-sm btn-outline-primary view_forum" href="../index.php?page=view_forum&id=<?php echo $row['id'] ?>" target="_blank" data-id="<?php echo $row['id'] ?>">View</a>
+											<a class="btn btn-sm btn-outline-primary view_forum" href="index.php?page=view_forum&id=<?php echo $row['id'] ?>" target="_blank" data-id="<?php echo $row['id'] ?>">View</a>
 											<button class="btn btn-sm btn-outline-primary edit_forum" type="button" data-id="<?php echo $row['id'] ?>">Edit</button>
 											<button class="btn btn-sm btn-outline-danger delete_forum" type="button" data-id="<?php echo $row['id'] ?>">Delete</button>
 										</td>
@@ -142,7 +142,7 @@
 	function delete_forum($id) {
 		start_load()
 		$.ajax({
-			url: 'ajax.php?action=delete_forum',
+			url: 'admin/ajax.php?action=delete_forum',
 			method: 'POST',
 			data: {
 				id: $id

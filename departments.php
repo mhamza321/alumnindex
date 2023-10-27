@@ -57,7 +57,7 @@
 							<tbody>
 								<?php
 								$i = 1;
-								$course = $conn->query("SELECT * FROM departments order by id asc");
+								$course = $conn->query("SELECT * FROM departments where org_id = " . $_SESSION['login_org_id']);
 								while ($row = $course->fetch_assoc()) :
 								?>
 									<tr>
@@ -66,7 +66,7 @@
 											<?php echo $row['name'] ?>
 										</td>
 										<td class="text-center">
-											<button class="btn btn-sm btn-primary edit_course" type="button" data-id="<?php echo $row['id'] ?>" data-course="<?php echo $row['course'] ?>">Edit</button>
+											<button class="btn btn-sm btn-primary edit_course" type="button" data-id="<?php echo $row['id'] ?>" data-course="<?php echo $row['name'] ?>">Edit</button>
 											<button class="btn btn-sm btn-danger delete_dept" type="button" data-id="<?php echo $row['id'] ?>">Delete</button>
 										</td>
 									</tr>
@@ -120,7 +120,7 @@
 		var cat = $('#manage-dept')
 		cat.get(0).reset()
 		cat.find("[name='id']").val($(this).attr('data-id'))
-		cat.find("[name='course']").val($(this).attr('data-course'))
+		cat.find("[name='name']").val($(this).attr('data-course'))
 		end_load()
 	})
 	$('.delete_dept').click(function() {
@@ -146,5 +146,5 @@
 			}
 		})
 	}
-	$('table').dataTable()
+	// $('table').dataTable()
 </script>

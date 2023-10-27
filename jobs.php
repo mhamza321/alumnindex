@@ -41,7 +41,8 @@
 						</span>
 					</div>
 					<div class="card-body">
-
+						<?php //var_dump($_SESSION['login_id']);
+						?>
 						<table class="table table-bordered table-condensed table-hover">
 							<thead>
 								<tr>
@@ -55,15 +56,17 @@
 							<tbody>
 								<?php
 								$i = 1;
-								$jobs =  $conn->query("SELECT c.*,u.name from careers c inner join users u on u.id = c.user_id order by id desc");
+								$jobs =  $conn->query("SELECT c.*,u.name from careers c inner join users u on u.id = c.user_id where user_id =" . $_SESSION['login_id']);
 								while ($row = $jobs->fetch_assoc()) :
 
 								?>
 									<tr>
 
-										<td class="text-center"><?php echo $i++ ?></td>
+										<td class="text-center"><?php echo $i++;
+																?></td>
 										<td class="">
-											<p><b><?php echo ucwords($row['company']) ?></b></p>
+											<p><b><?php echo ucwords($row['company']);
+													echo $row['id'] ?></b></p>
 
 										</td>
 										<td class="">
@@ -127,8 +130,9 @@
 
 	function delete_career($id) {
 		start_load()
+		// console.log($id)
 		$.ajax({
-			url: 'ajax.php?action=delete_career',
+			url: 'admin/ajax.php?action=delete_career',
 			method: 'POST',
 			data: {
 				id: $id

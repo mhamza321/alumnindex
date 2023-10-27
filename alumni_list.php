@@ -91,7 +91,7 @@ include 'admin/db_connect.php';
             <div class="col-lg-8 align-self-end mb-4 page-title">
                 <h3 class="text-white">Alumnus/Alumnae List</h3>
                 <?php
-                // var_dump($_SESSION['login_id'][0]);
+                // var_dump($_SESSION['login_alumnus_id']);
                 ?>
                 <hr class="divider my-4" />
 
@@ -129,7 +129,18 @@ include 'admin/db_connect.php';
             <div class="row">
                 <?php
                 $fpath = 'admin/assets/uploads';
-                $alumni = $conn->query("SELECT a.*,c.course,Concat(a.lastname,', ',a.firstname,' ',a.middlename) as name from alumnus_bio a inner join courses c on c.id = a.course_id order by Concat(a.lastname,', ',a.firstname,' ',a.middlename) asc");
+                // $alumni = $conn->query("SELECT a.*,c.course,Concat(a.lastname,', ',a.firstname,' ',a.middlename) as name from alumnus_bio a inner join courses c on c.id = a.course_id order by Concat(a.lastname,', ',a.firstname,' ',a.middlename) asc");
+                if ($_SESSION['login_org_id'] > 0) {
+                    var_dump($_SESSION['login_org_id']);
+                    $alumni = $conn->query("SELECT a.*,c.name, Concat(a.lastname,', ',a.firstname,' ',a.middlename) as aname from alumnus_bio a inner join departments c on c.id = a.dept_id where a.org_id=" . $_SESSION['login_org_id']);
+                    print("Helo");
+                } else {
+                    // var_dump($_SESSION['login_id']);
+                    $loginid = $conn->query("SELECT org_id from alumnus_bio where id=" . $_SESSION['login_id'])->fetch_array();
+                    // var_dump($loginid);
+                    // print($_SESSION['bio']['org_id']);
+                    $alumni = $conn->query("SELECT a.*,c.name, Concat(a.lastname,', ',a.firstname,' ',a.middlename) as aname from alumnus_bio a inner join departments c on c.id = a.dept_id where a.org_id=" . $_SESSION['bio']['org_id']);
+                }
                 while ($row = $alumni->fetch_assoc()) :
                 ?>
                     <div class="col-md-4 item">
@@ -142,10 +153,10 @@ include 'admin/db_connect.php';
                                 <div class="row align-items-center h-100">
                                     <div class="">
                                         <div>
-                                            <p class="filter-txt"><b><?php echo $row['name'] ?></b></p>
+                                            <p class="filter-txt"><b><?php echo $row['aname'] ?></b></p>
                                             <hr class="divider w-100" style="max-width: calc(100%)">
                                             <p class="filter-txt">Email: <b><?php echo $row['email'] ?></b></p>
-                                            <p class="filter-txt">Course: <b><?php echo $row['course'] ?></b></p>
+                                            <p class="filter-txt">Course: <b><?php echo $row['name'] ?></b></p>
                                             <p class="filter-txt">Batch: <b><?php echo $row['batch'] ?></b></p>
                                             <p class="filter-txt">Currently working in/as <b><?php echo $row['connected_to'] ?></b></p>
                                             <br>

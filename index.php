@@ -89,9 +89,20 @@ a.jqte_tool_label.unselectable {
           <!-- <li class="nav-item"><a class="nav-link js-scroll-trigger" href="index.php?page=alumni_list">Alumni</a></li> -->
           <!-- <li class="nav-item"><a class="nav-link js-scroll-trigger" href="index.php?page=gallery">Gallery</a></li> -->
           <?php if (isset($_SESSION['login_id'])) : ?>
-            <li class="nav-item"><a class="nav-link js-scroll-trigger" href="index.php?page=alumni_list">Alumni</a></li>
+            <?php if (isset($_SESSION['org'])) { ?>
+              <?php if ($_SESSION['org']['org_type'] == 1 || $_SESSION['org']['org_type'] == 2) { ?>
+                <li class="nav-item"><a class="nav-link js-scroll-trigger" href="index.php?page=org_dash">Dashoboard</a></li>
+              <?php } ?>
+            <?php } ?>
+            <?php if (isset($_SESSION['org'])) { ?>
+              <?php if ($_SESSION['org']['org_type'] == 1) { ?>
+                <li class="nav-item"><a class="nav-link js-scroll-trigger" href="index.php?page=alumni_list">Alumni</a></li>
+              <?php } ?>
+            <?php } else { ?>
+              <li class="nav-item"><a class="nav-link js-scroll-trigger" href="index.php?page=alumni_list">Alumni</a></li>
+            <?php } ?>
             <li class="nav-item"><a class="nav-link js-scroll-trigger" href="index.php?page=careers">Jobs</a></li>
-            <li class="nav-item"><a class="nav-link js-scroll-trigger" href="index.php?page=forum">Forums</a></li>
+            <li class="nav-item"><a class="nav-link js-scroll-trigger" href="index.php?page=forum">Forums1</a></li>
           <?php endif; ?>
           <!-- <li class="nav-item"><a class="nav-link js-scroll-trigger" href="index.php?page=about">About</a></li> -->
           <?php if (!isset($_SESSION['login_id'])) : ?>
@@ -185,12 +196,14 @@ a.jqte_tool_label.unselectable {
       <div class="row">
         <div class="col-lg-4 ml-auto text-center mb-5 mb-lg-0">
           <i class="fas fa-phone fa-3x mb-3 text-muted"></i>
-          <div class="text-white"><?php echo $_SESSION['system']['contact'] ?></div>
+          <div class="text-white">+6948 8542 666<?php //echo $_SESSION['system']['contact'] 
+                                                ?></div>
         </div>
         <div class="col-lg-4 mr-auto text-center">
           <i class="fas fa-envelope fa-3x mb-3 text-muted"></i>
           <!-- Make sure to change the email address in BOTH the anchor text and the link target below!-->
-          <a class="d-block" href="mailto:<?php echo $_SESSION['system']['email'] ?>"><?php echo $_SESSION['system']['email'] ?></a>
+          <a class="d-block" href="mailto:<?php echo $_SESSION['system']['email'] ?>">info@alumnindex.com<?php //echo $_SESSION['system']['email'] 
+                                                                                                          ?></a>
         </div>
       </div>
     </div>

@@ -80,7 +80,7 @@
                                         <div class="card-body text-white">
                                             <span class="float-right summary_icon"><i class="fa fa-users"></i></span>
                                             <h4><b>
-                                                    <?php echo $conn->query("SELECT * FROM alumnus_bio where status = 1")->num_rows; ?>
+                                                    <?php echo $conn->query("SELECT * FROM alumnus_bio where org_id = " . $_SESSION['login_org_id'])->num_rows; ?>
                                                 </b></h4>
                                             <p><b>Alumni</b></p>
                                         </div>
@@ -94,7 +94,7 @@
                                     <div class="card-body text-white">
                                         <span class="float-right summary_icon"><i class="fa fa-comments"></i></span>
                                         <h4><b>
-                                                <?php echo $conn->query("SELECT * FROM forum_topics")->num_rows; ?>
+                                                <?php echo $conn->query("SELECT * FROM forum_topics where user_id = " . $_SESSION['login_org_id'])->num_rows; ?>
                                             </b></h4>
                                         <p><b>Forum Topics</b></p>
                                     </div>
@@ -107,7 +107,7 @@
                                     <div class="card-body text-white">
                                         <span class="float-right summary_icon"><i class="fa fa-briefcase"></i></span>
                                         <h4><b>
-                                                <?php echo $conn->query("SELECT * FROM careers")->num_rows; ?>
+                                                <?php echo $conn->query("SELECT * FROM careers where user_id = " . $_SESSION['login_org_id'])->num_rows; ?>
                                             </b></h4>
                                         <p><b>Posted jobs</b></p>
                                     </div>

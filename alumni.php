@@ -40,7 +40,7 @@
 									<th class="text-center">#</th>
 									<th class="">Avatar</th>
 									<th class="">Name</th>
-									<th class="">Course Graduated</th>
+									<th class="">Department</th>
 									<th class="">Status</th>
 									<th class="text-center">Action</th>
 								</tr>
@@ -48,7 +48,9 @@
 							<tbody>
 								<?php
 								$i = 1;
-								$alumni = $conn->query("SELECT a.*,c.course,Concat(a.lastname,', ',a.firstname,' ',a.middlename) as name from alumnus_bio a inner join courses c on c.id = a.course_id order by Concat(a.lastname,', ',a.firstname,' ',a.middlename) asc");
+								// $alumni = $conn->query("SELECT a.*,c.course,Concat(a.lastname,', ',a.firstname,' ',a.middlename) as name from alumnus_bio a inner join courses c on c.id = a.course_id order by Concat(a.lastname,', ',a.firstname,' ',a.middlename) asc");
+								// working $alumni = $conn->query("SELECT a.*, Concat(a.lastname,', ',a.firstname,' ',a.middlename) as aname from alumnus_bio a where org_id =" . $_SESSION['login_org_id']);
+								$alumni = $conn->query("SELECT a.*,c.name, Concat(a.lastname,', ',a.firstname,' ',a.middlename) as aname from alumnus_bio a inner join departments c on c.id = a.dept_id where a.org_id=" . $_SESSION['login_org_id']);
 								while ($row = $alumni->fetch_assoc()) :
 
 								?>
@@ -60,10 +62,11 @@
 											</div>
 										</td>
 										<td class="">
-											<p> <b><?php echo ucwords($row['name']) ?></b></p>
+											<p> <b><?php echo ucwords($row['aname']) ?></b></p>
 										</td>
 										<td class="">
-											<p> <b><?php echo $row['course'] ?></b></p>
+											<p> <b><?php echo $row['name']
+													?></b></p>
 										</td>
 										<td class="text-center">
 											<?php if ($row['status'] == 1) : ?>
