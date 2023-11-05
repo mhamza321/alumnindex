@@ -152,8 +152,8 @@ class Action
 	{
 		extract($_POST);
 		$data = '';
-		$lastname = 'ali';
-		$email = 'abcc@gmail.com';
+		// $lastname = 'ali';
+		// $email = 'abcc@gmail.com';
 		// $user_type = 10;
 		$user_type = (int)$user_type;
 		var_dump($firstname);
