@@ -208,7 +208,7 @@ class Action
 		// return;
 		// test end ****************
 		if ($save) {
-			return 1000;
+			// return 1000;
 			$uid = $this->db->insert_id;
 			$data = '';
 			foreach ($_POST as $k => $v) {
