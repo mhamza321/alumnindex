@@ -184,7 +184,7 @@ class Action
 		$save = '';
 		// $save = $this->db->query("INSERT INTO users set " . $data);
 		// test start***************
-		$sql = "INSERT INTO MyGuests (name, username)
+		$sql = "INSERT INTO users (name, username)
 		VALUES ('John','john@example.com')";
 		$save = $this->db->query($sql);
 		// test end ****************
