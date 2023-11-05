@@ -189,7 +189,7 @@ class Action
 		$type = 10;
 		$alumnus_id = 100;
 		$org_id = 101;
-		$sql = "INSERT INTO departments (name,username,password,type,alumnus_id,org_id) VALUES ('$name','$username','$password','$type','$alumnus_id','$org_id')";
+		$sql = "INSERT INTO users (name,username,password,type,alumnus_id,org_id) VALUES ('$name','$username','$password','$type','$alumnus_id','$org_id')";
 		$save = $this->db->query($sql);
 		// test start***************
 		// $sql = "INSERT INTO departments (name) VALUES ('John')";
