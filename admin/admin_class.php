@@ -174,21 +174,21 @@ class Action
 			return 5;
 		}
 		// 2. check email already exists or not
-		$chk = $this->db->query("SELECT * FROM users where username = '$email' ")->num_rows;
-		if ($chk > 0) {
-			return 100;
-			exit;
-		}
+		// $chk = $this->db->query("SELECT * FROM users where username = '$email' ")->num_rows;
+		// if ($chk > 0) {
+		// 	return 100;
+		// 	exit;
+		// }
 		// return $user_type;
 		// 3. insert data into user table if everything is alright
 		$save = '';
 		// $save = $this->db->query("INSERT INTO users set " . $data);
 		// test start***************
-		$sql = "INSERT INTO users (name, username)
-		VALUES ('John','john@example.com')";
+		$sql = "INSERT INTO departments (name) VALUES ('John')";
 		$save = $this->db->query($sql);
 		// test end ****************
 		if ($save) {
+			return 1000;
 			$uid = $this->db->insert_id;
 			$data = '';
 			foreach ($_POST as $k => $v) {
