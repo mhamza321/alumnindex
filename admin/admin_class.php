@@ -165,7 +165,7 @@ class Action
 		// 2. check email already exists or not
 		$chk = $this->db->query("SELECT * FROM users where username = '$email' ")->num_rows;
 		if ($chk > 0) {
-			return 2;
+			return 100;
 			exit;
 		}
 		// return $user_type;
@@ -312,6 +312,8 @@ class Action
 						return 1;
 				}
 			}
+		} else {
+			return $save;
 		}
 	}
 	function load_depts()
