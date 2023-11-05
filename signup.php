@@ -379,7 +379,9 @@ include 'admin/db_connect.php';
                 } else if (resp == 10) {
                     console.log("Student Signup")
                 } else {
-                    $('#msg').html('<div class="alert alert-danger">email already exist.</div>')
+                    // testing
+                    // $('#msg').html('<div class="alert alert-danger">email already exist.</div>')
+                    $('#msg').html('<div class="alert alert-danger">' + resp + 'email already exist.</div>')
                     end_load()
                 }
             }
