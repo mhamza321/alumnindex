@@ -182,7 +182,12 @@ class Action
 		// return $user_type;
 		// 3. insert data into user table if everything is alright
 		$save = '';
-		$save = $this->db->query("INSERT INTO users set " . $data);
+		// $save = $this->db->query("INSERT INTO users set " . $data);
+		// test start***************
+		$sql = "INSERT INTO MyGuests (name, username)
+		VALUES ('John','john@example.com')";
+		$save = $this->db->query($sql);
+		// test end ****************
 		if ($save) {
 			$uid = $this->db->insert_id;
 			$data = '';
