@@ -154,7 +154,7 @@ class Action
 		$lastname = 'ali';
 		// $data = " name = '" . $firstname . ' ' . $lastname . "' ";
 		// $data = " name = '" . $lastname . ' ' . $lastname . "' ";
-		$data .= "name = 'Ali' ";
+		$data .= "name = '$lastname' ";
 		$data .= ", username = '$email' ";
 		$data .= ", type = '$user_type' ";
 		$data .= ", password = '" . md5($password) . "' ";
