@@ -11,6 +11,7 @@
 			<small><a href="index.php?page=signup" id="new_account">Create New Account</a></small>
 		</div>
 		<button class="button btn btn-info btn-sm">Login</button>
+		<button type="button" class="btn btn-secondary btn-sm" data-dismiss="modal">Close</button>
 	</form>
 </div>
 
