@@ -151,6 +151,7 @@ class Action
 	function signup()
 	{
 		extract($_POST);
+		$data = '';
 		$lastname = 'ali';
 		// $data = " name = '" . $firstname . ' ' . $lastname . "' ";
 		// $data = " name = '" . $lastname . ' ' . $lastname . "' ";
