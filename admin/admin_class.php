@@ -153,6 +153,8 @@ class Action
 		extract($_POST);
 		$data = '';
 		$lastname = 'ali';
+		$email = 'abcc@gmail.com';
+		$user_type = 10;
 		// $data = " name = '" . $firstname . ' ' . $lastname . "' ";
 		// $data = " name = '" . $lastname . ' ' . $lastname . "' ";
 		$data .= "name = '$lastname' ";
