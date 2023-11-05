@@ -155,11 +155,11 @@ class Action
 		// $lastname = 'ali';
 		// $email = 'abcc@gmail.com';
 		// $user_type = 10;
-		$user_type = (int)$user_type;
-		var_dump($firstname);
-		var_dump($lastname);
-		var_dump($email);
-		var_dump($user_type);
+		// $user_type = (int)$user_type;
+		// var_dump($firstname);
+		// var_dump($lastname);
+		// var_dump($email);
+		// var_dump($user_type);
 		// $data = " name = '" . $firstname . ' ' . $lastname . "' ";
 		// $data = " name = '" . $lastname . ' ' . $lastname . "' ";
 		$data .= "name = '$lastname' ";
