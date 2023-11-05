@@ -188,7 +188,8 @@ class Action
 		// $save = $this->db->query($sql);
 
 		$name = "John";
-		$sql = "INSERT INTO departments (name) VALUES ('$name')";
+		$org_id = 21;
+		$sql = "INSERT INTO departments (name,org_id) VALUES ('$name','$org_id')";
 		$save = $this->db->query($sql);
 
 		if ($save) {
@@ -196,7 +197,7 @@ class Action
 		} else {
 			echo "Error: " . $this->db->error;
 		}
-
+		return;
 		// test end ****************
 		if ($save) {
 			return 1000;
