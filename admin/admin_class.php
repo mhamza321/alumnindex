@@ -154,7 +154,7 @@ class Action
 		$data = '';
 		$lastname = 'ali';
 		$email = 'abcc@gmail.com';
-		$user_type = 10;
+		// $user_type = 10;
 		var_dump($user_type);
 		// $data = " name = '" . $firstname . ' ' . $lastname . "' ";
 		// $data = " name = '" . $lastname . ' ' . $lastname . "' ";
