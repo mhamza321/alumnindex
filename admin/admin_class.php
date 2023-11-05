@@ -174,7 +174,7 @@ class Action
 		}
 		// return $user_type;
 		// 3. insert data into user table if everything is alright
-		// $save = '';
+		$save = '';
 		$save = $this->db->query("INSERT INTO users set " . $data);
 		if ($save) {
 			$uid = $this->db->insert_id;
