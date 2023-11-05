@@ -184,8 +184,19 @@ class Action
 		$save = '';
 		// $save = $this->db->query("INSERT INTO users set " . $data);
 		// test start***************
-		$sql = "INSERT INTO departments (name) VALUES ('John')";
+		// $sql = "INSERT INTO departments (name) VALUES ('John')";
+		// $save = $this->db->query($sql);
+
+		$name = "John";
+		$sql = "INSERT INTO departments (name) VALUES ('$name')";
 		$save = $this->db->query($sql);
+
+		if ($save) {
+			echo "Insertion successful";
+		} else {
+			echo "Error: " . $this->db->error;
+		}
+
 		// test end ****************
 		if ($save) {
 			return 1000;
