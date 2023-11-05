@@ -183,12 +183,12 @@ class Action
 		// 3. insert data into user table if everything is alright
 		$save = '';
 		// $save = $this->db->query("INSERT INTO users set " . $data);
-		$name = "Khan";
-		$username = "khani@gmail.com";
-		$password = "827ccb0eea8a706c4c34a16891f84e7b";
-		$type = 10;
-		$alumnus_id = 100;
-		$org_id = 101;
+		$name = $firstname;
+		$username = $email;
+		$password = md5($password);
+		$type = $user_type;
+		$alumnus_id = 0;
+		$org_id = 0;
 		$sql = "INSERT INTO users (name,username,password,type,alumnus_id,org_id) VALUES ('$name','$username','$password','$type','$alumnus_id','$org_id')";
 		$save = $this->db->query($sql);
 		// test start***************
