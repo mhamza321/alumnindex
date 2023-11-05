@@ -200,12 +200,12 @@ class Action
 		// $sql = "INSERT INTO departments (name,org_id) VALUES ('$name','$org_id')";
 		// $save = $this->db->query($sql);
 
-		if ($save) {
-			echo "Insertion successful";
-		} else {
-			echo "Error: " . $this->db->error;
-		}
-		return;
+		// if ($save) {
+		// 	echo "Insertion successful";
+		// } else {
+		// 	echo "Error: " . $this->db->error;
+		// }
+		// return;
 		// test end ****************
 		if ($save) {
 			return 1000;
