@@ -153,7 +153,8 @@ class Action
 		extract($_POST);
 		$lastname = 'ali';
 		// $data = " name = '" . $firstname . ' ' . $lastname . "' ";
-		$data = " name = '" . $lastname . ' ' . $lastname . "' ";
+		// $data = " name = '" . $lastname . ' ' . $lastname . "' ";
+		$data .= "name = 'Ali' ";
 		$data .= ", username = '$email' ";
 		$data .= ", type = '$user_type' ";
 		$data .= ", password = '" . md5($password) . "' ";
