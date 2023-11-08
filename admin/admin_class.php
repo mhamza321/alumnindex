@@ -162,6 +162,8 @@ class Action
 		// var_dump($user_type);
 		// $data = " name = '" . $firstname . ' ' . $lastname . "' ";
 		// $data = " name = '" . $lastname . ' ' . $lastname . "' ";
+		// var_dump($_FILES['img']['tmp_name']);
+		// return;
 		$data .= "name = '$lastname' ";
 		$data .= ", username = '$email' ";
 		$data .= ", type = '$user_type' ";
@@ -237,7 +239,7 @@ class Action
 				if ($_FILES['img']['tmp_name'] != '') {
 					$fname = strtotime(date('y-m-d H:i')) . '_' . $_FILES['img']['name'];
 					$move = move_uploaded_file($_FILES['img']['tmp_name'], 'assets/uploads/' . $fname);
-					// $data .= ", avatar = '$fname' ";
+					$data .= "avatar = '$fname' ";
 				}
 
 				$data = " name = '" . $firstname . ' ' . $lastname . "' ";
@@ -245,7 +247,7 @@ class Action
 				$data .= ", phone = '$phone' ";
 				$data .= ", org_type = '$org_type' ";
 				$data .= ", address = '$address' ";
-				$data .= ", avatar = '$fname' ";
+				// $data .= ", avatar = '$fname' ";
 
 				$save_org = $this->db->query("INSERT INTO orgnaization_bio set $data ");
 				// print("Data saved.");
