@@ -289,6 +289,11 @@ class Action
 				$data .= ", org_id = '$academia_id' ";
 				$data .= ", dept_id = '$dept_id' ";
 				$data .= ", status = '1' ";
+				if ($_FILES['img']['tmp_name'] != '') {
+					$fname = strtotime(date('y-m-d H:i')) . '_' . $_FILES['img']['name'];
+					$move = move_uploaded_file($_FILES['img']['tmp_name'], 'assets/uploads/' . $fname);
+					$data .= ", avatar = '$fname' ";
+				}
 				// $data .= ", avatar = '$move' ";
 				// var_dump($data);
 				// exit();
