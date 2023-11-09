@@ -82,7 +82,7 @@ include 'admin/db_connect.php';
         <div class="card-body">
             <div class="row  align-items-center justify-content-center text-center h-100">
                 <div class="">
-                    <p>3 Welcome to the Alumni Hub, where cherished connections endure beyond graduation.
+                    <p>Welcome to the Alumni Hub, where cherished connections endure beyond graduation.
                         Our vibrant community of alumni spans the globe, making positive impacts in diverse fields
                         and industries. Here, you'll find a platform to reconnect with former classmates,
                         expand your professional network, and stay updated on the latest campus developments.
