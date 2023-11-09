@@ -236,17 +236,20 @@ class Action
 				// $data = " name = '$firstname' ";
 				$data = '';
 				$fname = '';
-				if ($_FILES['img']['tmp_name'] != '') {
-					$fname = strtotime(date('y-m-d H:i')) . '_' . $_FILES['img']['name'];
-					$move = move_uploaded_file($_FILES['img']['tmp_name'], 'assets/uploads/' . $fname);
-					$data .= "avatar = '$fname' ";
-				}
-
+				$org_status = 1;
 				$data = " name = '" . $firstname . ' ' . $lastname . "' ";
 				$data .= ", email = '$email' ";
 				$data .= ", phone = '$phone' ";
 				$data .= ", org_type = '$org_type' ";
+				$data .= ", org_status = '$org_status' ";
 				$data .= ", address = '$address' ";
+				if ($_FILES['img']['tmp_name'] != '') {
+					$fname = strtotime(date('y-m-d H:i')) . '_' . $_FILES['img']['name'];
+					$move = move_uploaded_file($_FILES['img']['tmp_name'], 'assets/uploads/' . $fname);
+					$data .= ", avatar = '$fname' ";
+				}
+
+
 				// $data .= ", avatar = '$fname' ";
 
 				$save_org = $this->db->query("INSERT INTO orgnaization_bio set $data ");
