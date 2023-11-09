@@ -264,7 +264,7 @@ class Action
 						return 2;
 				}
 				return 2;
-			} else if ($user_type == 3) {
+			} else if ($user_type == 3) {  // alumni signup
 				// print("Hello alumni");
 				// print($user_type);
 				// exit();
@@ -289,6 +289,7 @@ class Action
 				$data .= ", org_id = '$academia_id' ";
 				$data .= ", dept_id = '$dept_id' ";
 				$data .= ", status = '1' ";
+				$data .= ", alumni = '1' "; // insert 1 if this is alumni signup
 				if ($_FILES['img']['tmp_name'] != '') {
 					$fname = strtotime(date('y-m-d H:i')) . '_' . $_FILES['img']['name'];
 					$move = move_uploaded_file($_FILES['img']['tmp_name'], 'assets/uploads/' . $fname);
@@ -336,6 +337,11 @@ class Action
 				$data .= ", dept_id = '$dept_id' ";
 				$data .= ", status = '1' ";
 				$data .= ", alumni = '0' "; // insert 0 if this is student signup
+				if ($_FILES['img']['tmp_name'] != '') {
+					$fname = strtotime(date('y-m-d H:i')) . '_' . $_FILES['img']['name'];
+					$move = move_uploaded_file($_FILES['img']['tmp_name'], 'assets/uploads/' . $fname);
+					$data .= ", avatar = '$fname' ";
+				}
 				// $data .= ", avatar = '$move' ";
 				// var_dump($data);
 				// exit();
