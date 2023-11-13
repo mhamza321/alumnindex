@@ -247,7 +247,7 @@ class Action
 				$data .= ", org_status = '$org_status' ";
 				$data .= ", address = '$address' ";
 				if ($_FILES['img']['tmp_name'] != '') {
-					define('SITE_ROOT', realpath(dirname(__FILE__)));
+					// define('SITE_ROOT', realpath(dirname(__FILE__)));
 					// move_uploaded_file($_FILES['file']['tmp_name'], SITE_ROOT.'/static/images/slides/1/1.jpg');
 					// http://52.66.22.163/
 					$fname = strtotime(date('y-m-d H:i')) . '_' . $_FILES['img']['name'];
