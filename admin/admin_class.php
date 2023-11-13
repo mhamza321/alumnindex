@@ -251,7 +251,7 @@ class Action
 					// move_uploaded_file($_FILES['file']['tmp_name'], SITE_ROOT.'/static/images/slides/1/1.jpg');
 					// http://52.66.22.163/
 					$fname = strtotime(date('y-m-d H:i')) . '_' . $_FILES['img']['name'];
-					$move = move_uploaded_file($_FILES['img']['tmp_name'], 'admin/assets/uploads/' . $fname);
+					$move = move_uploaded_file($_FILES['img']['tmp_name'], $_SERVER['DOCUMENT_ROOT'] . '/admin/assets/uploads/' . $fname);
 					$data .= ", avatar = '$fname' ";
 				} else {
 					$fname = '';
