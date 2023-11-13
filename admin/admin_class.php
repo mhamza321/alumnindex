@@ -281,6 +281,8 @@ class Action
 				// **************** Code end by Hamza
 				$data = '';
 				$move = '';
+				$middlename = '';
+				// $lastname='';
 				// if ($_FILES['img']['tmp_name'] != '') {
 				// 	$fname = strtotime(date('y-m-d H:i')) . '_' . $_FILES['img']['name'];
 				// 	$move = move_uploaded_file($_FILES['img']['tmp_name'], 'assets/uploads/' . $fname);
@@ -288,12 +290,15 @@ class Action
 				// }
 
 				$data = " firstname = '" . $firstname . ' ' . $lastname . "' ";
+				$data .= ", middlename = '$middlename' ";
+				$data .= ", lastname = '$middlename' ";
 				$data .= ", email = '$email' ";
 				$data .= ", phone = '$phone' ";
 				// $data .= ", org_type = '$org_type' ";
 				$data .= ", address = '$address' ";
 				$data .= ", gender = '$gender' ";
 				$data .= ", batch = '$batch' ";
+				$data .= ", course_id = '0' ";
 				$data .= ", connected_to = '$connected_to' ";
 				$data .= ", org_id = '$academia_id' ";
 				$data .= ", dept_id = '$dept_id' ";
