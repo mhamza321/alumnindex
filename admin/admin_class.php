@@ -151,7 +151,8 @@ class Action
 	function signup()
 	{
 		extract($_POST);
-		var_dump(define('SITE_ROOT', realpath(dirname(__FILE__))));
+		// define('SITE_ROOT', realpath(dirname(__FILE__)));
+		// var_dump('SITE_ROOT')
 		return 900;
 		$data = '';
 		// $lastname = 'ali';

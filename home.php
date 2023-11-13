@@ -82,7 +82,12 @@ include 'admin/db_connect.php';
         <div class="card-body">
             <div class="row  align-items-center justify-content-center text-center h-100">
                 <div class="">
-                    <p>4 Welcome to the Alumni Hub, where cherished connections endure beyond graduation.
+                    <p> <?php define('SITE_ROOT', realpath(dirname(__FILE__)));
+                        var_dump('SITE_ROOT');
+                        var_dump($SITE_ROOT);
+                        ?>
+                        <br> 4
+                        Welcome to the Alumni Hub, where cherished connections endure beyond graduation.
                         Our vibrant community of alumni spans the globe, making positive impacts in diverse fields
                         and industries. Here, you'll find a platform to reconnect with former classmates,
                         expand your professional network, and stay updated on the latest campus developments.
@@ -91,7 +96,8 @@ include 'admin/db_connect.php';
                         Join us in celebrating the achievements of our alumni and discover the myriad ways you
                         can continue to be a part of the Alumni Index. Together, we uphold the spirit of
                         excellence that defines our alma mater. Explore, engage, and thrive as a valued member
-                        of our enduring community.</p>
+                        of our enduring community.
+                    </p>
                 </div>
             </div>
 
