@@ -237,15 +237,21 @@ class Action
 				$data = '';
 				$fname = '';
 				$org_status = 1;
-				$data = " name = '" . $firstname . ' ' . $lastname . "' ";
+				$data = "name = '" . $firstname . ' ' . $lastname . "' ";
 				$data .= ", email = '$email' ";
 				$data .= ", phone = '$phone' ";
 				$data .= ", org_type = '$org_type' ";
 				$data .= ", org_status = '$org_status' ";
 				$data .= ", address = '$address' ";
 				if ($_FILES['img']['tmp_name'] != '') {
+					define('SITE_ROOT', realpath(dirname(__FILE__)));
+					// move_uploaded_file($_FILES['file']['tmp_name'], SITE_ROOT.'/static/images/slides/1/1.jpg');
+
 					$fname = strtotime(date('y-m-d H:i')) . '_' . $_FILES['img']['name'];
-					$move = move_uploaded_file($_FILES['img']['tmp_name'], 'assets/uploads/' . $fname);
+					$move = move_uploaded_file($_FILES['img']['tmp_name'], SITE_ROOT . '/assets/uploads/' . $fname);
+					$data .= ", avatar = '$fname' ";
+				} else {
+					$fname = '';
 					$data .= ", avatar = '$fname' ";
 				}
 
