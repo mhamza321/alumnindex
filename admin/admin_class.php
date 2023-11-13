@@ -304,6 +304,9 @@ class Action
 					$move = move_uploaded_file($_FILES['img']['tmp_name'], $_SERVER['DOCUMENT_ROOT'] . '/admin/assets/uploads/' . $fname);
 					// $move = move_uploaded_file($_FILES['img']['tmp_name'], 'assets/uploads/' . $fname);
 					$data .= ", avatar = '$fname' ";
+				} else {
+					$fname = '';
+					$data .= ", avatar = '$fname' ";
 				}
 				// $data .= ", avatar = '$move' ";
 				// var_dump($data);
@@ -351,6 +354,9 @@ class Action
 					$fname = strtotime(date('y-m-d H:i')) . '_' . $_FILES['img']['name'];
 					// $move = move_uploaded_file($_FILES['img']['tmp_name'], 'assets/uploads/' . $fname);
 					$move = move_uploaded_file($_FILES['img']['tmp_name'], $_SERVER['DOCUMENT_ROOT'] . '/admin/assets/uploads/' . $fname);
+					$data .= ", avatar = '$fname' ";
+				} else {
+					$fname = '';
 					$data .= ", avatar = '$fname' ";
 				}
 				// $data .= ", avatar = '$move' ";
