@@ -89,7 +89,7 @@ include 'admin/db_connect.php';
                         // echo "Hi";
                         echo $_SERVER['DOCUMENT_ROOT'];
                         echo "<br>";
-                        echo  $_SERVER['DOCUMENT_ROOT'] + '/admin/assets/uploads/';
+                        echo  $_SERVER['DOCUMENT_ROOT'] . '/admin/assets/uploads/';
                         // defined('SITE_ROOT') ? null : define('SITE_ROOT', realpath(dirname(__FILE__)));
                         // echo SITE_ROOT;
                         ?>
