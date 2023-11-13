@@ -87,8 +87,9 @@ include 'admin/db_connect.php';
                         // var_dump('SITE_ROOT');
                         // var_dump($SITE_ROOT);
                         echo "Hi";
-                        defined('SITE_ROOT') ? null : define('SITE_ROOT', realpath(dirname(__FILE__)));
-                        echo SITE_ROOT;
+                        echo $_SERVER['DOCUMENT_ROOT'];
+                        // defined('SITE_ROOT') ? null : define('SITE_ROOT', realpath(dirname(__FILE__)));
+                        // echo SITE_ROOT;
                         ?>
                         <br> 4
                         Welcome to the Alumni Hub, where cherished connections endure beyond graduation.
