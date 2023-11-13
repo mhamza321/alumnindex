@@ -153,7 +153,7 @@ class Action
 		extract($_POST);
 		// define('SITE_ROOT', realpath(dirname(__FILE__)));
 		// var_dump('SITE_ROOT')
-		return 900;
+		// return 900;
 		$data = '';
 		// $lastname = 'ali';
 		// $email = 'abcc@gmail.com';
@@ -249,9 +249,9 @@ class Action
 				if ($_FILES['img']['tmp_name'] != '') {
 					define('SITE_ROOT', realpath(dirname(__FILE__)));
 					// move_uploaded_file($_FILES['file']['tmp_name'], SITE_ROOT.'/static/images/slides/1/1.jpg');
-
+					// http://52.66.22.163/
 					$fname = strtotime(date('y-m-d H:i')) . '_' . $_FILES['img']['name'];
-					$move = move_uploaded_file($_FILES['img']['tmp_name'], SITE_ROOT . '/assets/uploads/' . $fname);
+					$move = move_uploaded_file($_FILES['img']['tmp_name'], 'http://52.66.22.163/admin/assets/uploads/' . $fname);
 					$data .= ", avatar = '$fname' ";
 				} else {
 					$fname = '';
