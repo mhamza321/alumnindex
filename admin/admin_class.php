@@ -337,6 +337,8 @@ class Action
 			} else if ($user_type == 10) { // student signup
 				$data = '';
 				$move = '';
+				$middlename = '';
+				$connected_to = '';
 				// if ($_FILES['img']['tmp_name'] != '') {
 				// 	$fname = strtotime(date('y-m-d H:i')) . '_' . $_FILES['img']['name'];
 				// 	$move = move_uploaded_file($_FILES['img']['tmp_name'], 'assets/uploads/' . $fname);
@@ -344,15 +346,18 @@ class Action
 				// }
 
 				$data = " firstname = '" . $firstname . ' ' . $lastname . "' ";
+				$data .= ", middlename = '$middlename' ";
+				$data .= ", lastname = '$middlename' ";
 				$data .= ", email = '$email' ";
 				$data .= ", phone = '$phone' ";
 				// $data .= ", org_type = '$org_type' ";
 				$data .= ", address = '$address' ";
 				$data .= ", gender = '$gender' ";
 				$data .= ", batch = '$batch' ";
-				// $data .= ", connected_to = '$connected_to' ";
+				$data .= ", connected_to = '$connected_to' ";
 				$data .= ", org_id = '$academia_id' ";
 				$data .= ", dept_id = '$dept_id' ";
+				$data .= ", course_id = '0' ";
 				$data .= ", status = '1' ";
 				$data .= ", alumni = '0' "; // insert 0 if this is student signup
 				if ($_FILES['img']['tmp_name'] != '') {
