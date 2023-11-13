@@ -86,7 +86,7 @@ include 'admin/db_connect.php';
                         // define('SITE_ROOT', realpath(dirname(__FILE__)));
                         // var_dump('SITE_ROOT');
                         // var_dump($SITE_ROOT);
-                        echo "Hi";
+                        // echo "Hi";
                         echo $_SERVER['DOCUMENT_ROOT'];
                         // defined('SITE_ROOT') ? null : define('SITE_ROOT', realpath(dirname(__FILE__)));
                         // echo SITE_ROOT;
