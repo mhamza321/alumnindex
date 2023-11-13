@@ -82,9 +82,13 @@ include 'admin/db_connect.php';
         <div class="card-body">
             <div class="row  align-items-center justify-content-center text-center h-100">
                 <div class="">
-                    <p> <?php define('SITE_ROOT', realpath(dirname(__FILE__)));
-                        var_dump('SITE_ROOT');
-                        var_dump($SITE_ROOT);
+                    <p> <?php
+                        // define('SITE_ROOT', realpath(dirname(__FILE__)));
+                        // var_dump('SITE_ROOT');
+                        // var_dump($SITE_ROOT);
+                        echo "Hi";
+                        defined('SITE_ROOT') ? null : define('SITE_ROOT', realpath(dirname(__FILE__)));
+                        echo SITE_ROOT;
                         ?>
                         <br> 4
                         Welcome to the Alumni Hub, where cherished connections endure beyond graduation.
