@@ -238,6 +238,8 @@ include 'admin/db_connect.php';
             $("#alumni_job").hide();
             $("#org_type").show();
             $("#institute_name").show();
+            $('#batch').show();
+            $('#works_at').show();
         }
 
     });
