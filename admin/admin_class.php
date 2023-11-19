@@ -344,9 +344,17 @@ class Action
 				// 	$move = move_uploaded_file($_FILES['img']['tmp_name'], 'assets/uploads/' . $fname);
 				// 	// $data .= ", avatar = '$fname' ";
 				// }
-				if (empty($academia_id)) {
-					echo "Acedemia is empty.";
+				// ********* Validation start ************
+				// if (empty($academia_id)) {
+				// 	echo "Acedemia is empty.";
+				// }
+				if (empty($batch)) {
+					$batch = 0000;
 				}
+				if (empty($connected_to)) {
+					$connected_to = '';
+				}
+				// ************** Validation end ************
 				$data = " firstname = '" . $firstname . ' ' . $lastname . "' "; //
 				$data .= ", middlename = '$middlename' "; //
 				$data .= ", lastname = '$middlename' "; //
